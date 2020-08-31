@@ -1,3 +1,5 @@
+package hamcrest;
+
 import model.pojo.PojoBean;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +12,7 @@ public class CoreMatchersTest {
     @Test
     void stringShouldContainsSpecCharacters() {
         assertThat(efsName, containsString("ЕФС"));
-    };
+    }
     @Test
     void shouldWorkHamcrestMatcherAllof(){
         assertThat(efsName, anyOf (startsWith("ЕФС"),containsString("Троль")));

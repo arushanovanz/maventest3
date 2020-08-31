@@ -5,7 +5,7 @@
         <parameter name="user" value="{$user}"/>
         <parameter name="password" value="{$password}"/>
         <classes>
-            <class name="FileDataproviderTests"/>
+            <class name="dataprovider.FileDataproviderTests"/>
         </classes>
     </test> <!-- Test -->
 

@@ -1,16 +1,13 @@
+package hamcrest;
 
 import model.pojo.PojoBean;
-import org.hamcrest.BaseMatcher;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
+import org.hamcrest.CustomTypeSafeMatcher;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.util.List;
 import java.util.stream.IntStream;
 
 import static java.util.Arrays.asList;
-
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -46,8 +43,33 @@ class HamcrestTest {
             PojoBean pojoBean = new PojoBean("NN",20);
             assertThat(pojoBean,is(MatcherHelper.hasAge(21)));
         }
-
-
-
+    @Test
+    void pojoBeanCustomMatcherTest2(){
+        PojoBean pojoBean = new PojoBean("NA",21);
+        assertThat(pojoBean,is(MatcherHelper.hasNameAndAge("NN",21)));
     }
+    @Test
+    void pojoBeanCustomMatcherTest3(){
+        PojoBean pojoBean = new PojoBean("NA",20);
+        assertThat(pojoBean,is(MatcherHelper.containAge(21)));
+    }
+
+    @Test
+    void pojoBeanCustomMatcherTest4(){
+        PojoBean pojoBean = new PojoBean("NA",20);
+        assertThat(pojoBean,is(MatcherHelper.hasNumberWithFeatureMatcher(20)));
+    }
+
+    @Test
+    void PojoBeanSouldHaveCorrectAgeWithCustomMatcher(){
+        PojoBean pojoBean = new PojoBean("NA",21);
+        assertThat(pojoBean, new CustomTypeSafeMatcher<PojoBean>(pojoBean.toString()){
+
+            @Override
+            protected boolean matchesSafely(PojoBean item) {
+                return item.getAge() == 20;
+            }
+        });
+    }
+}
 
