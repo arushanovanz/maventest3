@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class MatcherHelper {
     public static Matcher<PojoBean> hasAge(final int age) {
-        return new BaseMatcher<PojoBean>() {
+        return new BaseMatcher<>() {
             @Override
             public boolean matches(final Object item) {
                 final PojoBean pojoBean = (PojoBean) item;
@@ -67,7 +67,7 @@ public class MatcherHelper {
         };
     }
 
-    public static Matcher <PojoBean> hasNumberWithFeatureMatcher(final int age) {
+    public static Matcher<PojoBean> hasNumberWithFeatureMatcher(final int age) {
         return new FeatureMatcher<PojoBean, Integer>(equalTo(age), "age", "age is not correct.") {
 
             @Override

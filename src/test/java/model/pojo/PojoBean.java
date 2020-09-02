@@ -1,9 +1,5 @@
 package model.pojo;
 
-import org.hamcrest.BaseMatcher;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-
 public class PojoBean {
     int id;
     String name;
@@ -40,10 +36,10 @@ public class PojoBean {
 
     @Override
     public String toString() {
-        if (this.name==null && this.age ==0){
+        if (this.name == null && this.age == 0) {
             return null;
         }
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append("[");
         sb.append("Name: ");
         sb.append(this.name);

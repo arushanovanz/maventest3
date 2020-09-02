@@ -11,31 +11,31 @@ import ru.yandex.qatools.matchers.decorators.TimeoutWaiter;
 import webdriveryandextests.pages.Google;
 
 /**
-     * Примеры использования стандартных матчеров библиотеки Yandex-Matchers
-     *
-     * @author artsok
-     */
-    @Guice(modules = {DriverModule.class})
-    public class MatchersJavaTests {
+ * Примеры использования стандартных матчеров библиотеки Yandex-Matchers
+ *
+ * @author artsok
+ */
+@Guice(modules = {DriverModule.class})
+public class MatchersJavaTests {
 
-        @Inject
-        private Google google;
+    @Inject
+    private Google google;
 
-        @Inject
-        private WebDriver driver;
+    @Inject
+    private WebDriver driver;
 
-        @Inject
-        private Actions actions;
+    @Inject
+    private Actions actions;
 
 //        @BeforeMethod
 //        public void setUp() {
 //            google.goTo();
 //        }
 
-        /**
-         * Используем матчер should и displayed из библиотек Yandex-Matchers.
-         * Матчер everyItem используем из Hamcrest Core
-         */
+    /**
+     * Используем матчер should и displayed из библиотек Yandex-Matchers.
+     * Матчер everyItem используем из Hamcrest Core
+     */
 //        @Test
 //        public void shouldDisplayedGooglePageWithResult() {
 //            google.getSearchWidget().searchFor("Sberbank - Russian Commercial Bank");
@@ -78,7 +78,7 @@ import webdriveryandextests.pages.Google;
      * По истичению 5 секунд, тест упадет, если матчер отработал не корректно
      * <p>
      * В классе {@link TimeoutWaiter} есть статические методы для создания экземпляра класса.
-//     */
+     //     */
 //    @Test
 //    public void shouldDisplayedPageWithResultWithDecorateMatcherWithWaiterAnotherForm() {
 //        google.getSearchWidget().searchFor("Sberbank-Technology");
@@ -144,8 +144,8 @@ import webdriveryandextests.pages.Google;
 //        google.getSearchWidget().searchFor("Automation");
 //        assertThat(driver, should(textOnCurrentPage(is(containsString("Automation")))));
 //    }
+
     /**
-     *
      * Требуется зависимость Junit 4.
      * Проверка, что условие (матчер, как аргумент в методе inCase) будет выполнен.
      * Дальше если пред-условие выполняется,
@@ -159,8 +159,6 @@ import webdriveryandextests.pages.Google;
 //        WebElement element = driver.findElement(By.xpath("//a[contains(text(), 'Войти')]"));
 //        assertThat(resultList, should(everyItem(exists())).inCase(element, notNullValue()));
 //    }
-
-
     @AfterMethod
     public void teardown() {
         if (driver != null) {

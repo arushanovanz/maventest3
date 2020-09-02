@@ -57,14 +57,15 @@ public class AssertJTests {
     }
 
     @Test
-    public void assertJBoolean(){
+    public void assertJBoolean() {
 
         assertThat(true).isTrue();
         assertThat("AssertJ".isEmpty()).isFalse();
     }
+
     @Test
-    public void assertJDifferentAssertions(){
-       //Check files
+    public void assertJDifferentAssertions() {
+        //Check files
         assertThat(new File("src/test/resources/user.data"))
                 .exists()
                 .isFile()
@@ -78,13 +79,13 @@ public class AssertJTests {
         //  assertThat(given).hasContent(expected);
 
         //Check maps
-        Map<String,String> ladaCars = new HashMap<>();
+        Map<String, String> ladaCars = new HashMap<>();
         ladaCars.put("ВАЗ-1119", "Девятка");
         ladaCars.put("ВАЗ-2170", "Приора");
         assertThat(ladaCars)
                 .isNotEmpty()
                 .containsKey("ВАЗ-1119")
-                .doesNotContainKeys("ГАЗ-21","ffff")
+                .doesNotContainKeys("ГАЗ-21", "ffff")
                 .contains(entry("ВАЗ-2170", "Приора"));
 
         PojoBean person = new PojoBean("Daniel", 20);

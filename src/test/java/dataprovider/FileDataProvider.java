@@ -9,22 +9,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
- public  class FileDataProvider {
-        //Здесь мы берём данные из файла user.data в папке resources
-        @DataProvider(parallel = true)
-        public static Iterator<Object[]> loadUserFromFile() throws IOException {
-            final BufferedReader in = new BufferedReader(
-                    new InputStreamReader(FileDataProvider.class.getResourceAsStream("resources/user.data")));
+public class FileDataProvider {
+    //Здесь мы берём данные из файла user.data в папке resources
+    @DataProvider(parallel = true)
+    public static Iterator<Object[]> loadUserFromFile() throws IOException {
+        final BufferedReader in = new BufferedReader(
+                new InputStreamReader(FileDataProvider.class.getResourceAsStream("resources/user.data")));
 
-            List<Object[]> userData = new ArrayList<Object[]>() {{
-                String line = in.readLine();
-                while (line != null) {
-                    add(line.split(";"));
-                    line = in.readLine();
-                }
-            }};
+        List<Object[]> userData = new ArrayList<Object[]>() {{
+            String line = in.readLine();
+            while (line != null) {
+                add(line.split(";"));
+                line = in.readLine();
+            }
+        }};
 
-            return userData.iterator();
-        }
+        return userData.iterator();
     }
+}
 
