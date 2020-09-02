@@ -1,10 +1,14 @@
 package cucumber.examples.stepdefinitions;
 
 import io.cucumber.java.ru.Дано;
+import io.cucumber.java.ru.Допустим;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
+import org.testng.Assert;
 
 import java.math.BigDecimal;
+
+
 
 import static org.testng.Assert.assertEquals;
 
@@ -24,5 +28,11 @@ public class MyStepdefs {
     @Тогда("на счете пользовалеля имеется {int} рублей")
     public void наСчетеПользовалеляИмеетсяРублей(int arg0) {
 
+    }
+
+    @Допустим("{int} умножаем на {int} получаем {int}")
+    public void множительУмножаемНаМножительПолучаемРезультат(int arg0, int arg1, int res) {
+        System.out.println(" "+arg0 +" + "+ arg1 +" = "+ res );
+        Assert.assertEquals(arg0+arg1,res);
     }
 }

@@ -2,6 +2,7 @@ package cucumber.examples.stepdefinitions;
 
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Допустим;
+import io.cucumber.java.ru.Пусть;
 import model.User;
 
 import java.time.LocalDate;
@@ -19,5 +20,10 @@ public class CustomTypeStepDefs {
         for (int i=0; i< users.size();i++){
             System.out.println("User #"+i+ " " + users.get(i));
         }
+    }
+
+    @Пусть("выведется на консоль стихотворение")
+    public void выведетсяСтихотворение(String s) {
+        System.out.println(s);
     }
 }
