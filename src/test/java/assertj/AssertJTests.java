@@ -2,7 +2,7 @@ package assertj;
 
 
 import model.pojo.PojoBean;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.Serializable;

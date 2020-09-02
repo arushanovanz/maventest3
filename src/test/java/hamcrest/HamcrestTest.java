@@ -2,7 +2,7 @@ package hamcrest;
 
 import model.pojo.PojoBean;
 import org.hamcrest.CustomTypeSafeMatcher;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.stream.IntStream;
